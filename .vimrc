@@ -72,7 +72,7 @@ autocmd vimenter * NERDTree | wincmd p
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | wincmd p | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-set encoding=UTF-8
+let NERDTreeShowHidden=1
 
 
 " Plugin ctrlp
@@ -92,6 +92,9 @@ inoremap "      ""<left>
 inoremap ""      ""
 inoremap '      ''<left>
 inoremap ''      ''
+
+set termencoding=utf-8
+set encoding=utf-8
 
 " Cocnvim"
 " if hidden is not set, TextEdit might fail.

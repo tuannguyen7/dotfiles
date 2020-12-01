@@ -80,6 +80,7 @@ export FZF_BASE=/usr/local/opt/fzf/
 # for fun
 alias please="sudo"
 alias vim="nvim"
+alias v="nvim"
 
 # Antlr4 configuration
 export CLASSPATH=".:/usr/local/lib/antlr-4.8-complete.jar:$CLASSPATH"
@@ -122,3 +123,8 @@ export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 source /usr/local/bin/virtualenvwrapper.sh
 
 export PATH="/usr/local/opt/python@3.8/bin:$PATH"
+
+# set default terminal
+export TERM=xterm-256color
+
+# Alias
