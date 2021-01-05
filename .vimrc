@@ -34,6 +34,10 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'yggdroot/indentline'
 Plugin 'drewtempelmeyer/palenight.vim'
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plugin 'junegunn/fzf.vim'
+Plugin 'fatih/vim-go'
+
 
 
 
@@ -66,7 +70,8 @@ set shiftwidth=4
 " On pressing tab, insert 4 spaces
 set expandtab
 imap jj <ESC>
-:syntax on
+syntax on
+
 colorscheme gruvbox
 autocmd vimenter * NERDTree | wincmd p
 autocmd StdinReadPre * let s:std_in=1
@@ -114,6 +119,15 @@ set shortmess+=c
 
 " always show signcolumns
 set signcolumn=yes
+
+" vim-go
+" let g:go_highlight_functions = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_function_calls = 1
+
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.

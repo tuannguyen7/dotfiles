@@ -123,6 +123,7 @@ export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 source /usr/local/bin/virtualenvwrapper.sh
 
 export PATH="/usr/local/opt/python@3.8/bin:$PATH"
+export KUBE_EDITOR="/usr/local/bin/nvim"
 
 # set default terminal
 export TERM=xterm-256color
