@@ -30,15 +30,14 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'neoclide/coc.nvim'
 Plugin 'itchyny/lightline.vim'
-Plugin 'ctrlpvim/ctrlp.vim'
+" Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'ryanoasis/vim-devicons'
-Plugin 'yggdroot/indentline'
+Plugin 'Yggdroot/indentLine'
 Plugin 'drewtempelmeyer/palenight.vim'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
 Plugin 'fatih/vim-go'
-
-
+Plugin 'voldikss/vim-floaterm'
 
 
 " All of your Plugins must be added before the following line
@@ -71,8 +70,8 @@ set shiftwidth=4
 set expandtab
 imap jj <ESC>
 syntax on
-
 colorscheme gruvbox
+
 autocmd vimenter * NERDTree | wincmd p
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | wincmd p | endif
@@ -127,6 +126,7 @@ let g:go_highlight_methods = 1
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_function_calls = 1
+let g:go_doc_window_popup_window = 1
 
 
 " Use tab for trigger completion with characters ahead and navigate.
@@ -159,3 +159,9 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
+
+" indentLine
+let g:indentLine_setColors = 0
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+
