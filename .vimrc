@@ -33,11 +33,11 @@ Plugin 'itchyny/lightline.vim'
 " Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'Yggdroot/indentLine'
-Plugin 'drewtempelmeyer/palenight.vim'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
 Plugin 'fatih/vim-go'
-Plugin 'voldikss/vim-floaterm'
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
 
 
 " All of your Plugins must be added before the following line
@@ -160,8 +160,11 @@ function! s:show_documentation()
   endif
 endfunction
 
-
 " indentLine
 let g:indentLine_setColors = 0
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
+" lightline
+let g:lightline = {
+  \ 'colorscheme': 'jellybeans',
+\ }

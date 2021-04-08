@@ -69,7 +69,9 @@ key_bindings:
     - { key: Key7, mods: Command, chars: "\x01\x37"  } 
     - { key: Key8, mods: Command, chars: "\x01\x38"  } 
     - { key: Key9, mods: Command, chars: "\x01\x39"  } 
-    - { key: M, mods: Control, chars: "\x1b\x5b\x43"  } 
+    - { key: M, mods: Control, chars: "\x1b\x5b\x43" } 
+    - { key: J, mods: Control, chars: "\x1b\x5b\x41" } 
+    - { key: K, mods: Control, chars: "\x1b\x5b\x42" } 
 
 
 shell:

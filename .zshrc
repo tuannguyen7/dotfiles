@@ -77,18 +77,12 @@ source $ZSH/oh-my-zsh.sh
 # plugin fzf
 export FZF_BASE=/usr/local/opt/fzf/
 
-# for fun
-alias please="sudo"
-alias vim="nvim"
-alias v="nvim"
-
 # Antlr4 configuration
 export CLASSPATH=".:/usr/local/lib/antlr-4.8-complete.jar:$CLASSPATH"
 alias antlr4='java -jar /usr/local/lib/antlr-4.8-complete.jar'
 alias grun='java org.antlr.v4.gui.TestRig'
 # End of Antlr4 configuraton
 
- 
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -129,3 +123,6 @@ export KUBE_EDITOR="/usr/local/bin/nvim"
 export TERM=xterm-256color
 
 # Alias
+alias please="sudo" # for fun
+alias vim="nvim"
+alias v="nvim"
