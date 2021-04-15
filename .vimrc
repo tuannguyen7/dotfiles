@@ -38,6 +38,8 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'fatih/vim-go'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'peitalin/vim-jsx-typescript'
 
 
 " All of your Plugins must be added before the following line
@@ -118,6 +120,9 @@ set shortmess+=c
 
 " always show signcolumns
 set signcolumn=yes
+
+" use system clipboard
+set clipboard+=unnamedplus
 
 " vim-go
 " let g:go_highlight_functions = 1
