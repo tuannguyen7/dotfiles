@@ -11,9 +11,10 @@ brew upgrade
 # Save Homebrew’s installed location.
 BREW_PREFIX=$(brew --prefix)
 
-# neovim
-brew install neovim
+# install tools
+brew install neovim, mux
 
+# download font for alacritty
 
 # zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
