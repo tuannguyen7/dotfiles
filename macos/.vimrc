@@ -16,6 +16,7 @@ Plug 'fatih/vim-go'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'morhetz/gruvbox'
+Plug 'easymotion/vim-easymotion'
 
 " Initialize plugin system
 call plug#end()
@@ -87,7 +88,7 @@ set shortmess+=c
 set signcolumn=yes
 
 " use system clipboard
-set clipboard+=unnamedplus
+" set clipboard+=unnamedplus
 
 " vim-go
 " let g:go_highlight_functions = 1
