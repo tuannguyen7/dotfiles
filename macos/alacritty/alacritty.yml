@@ -1,7 +1,7 @@
 # Font configuration (changes require restart)
 font:
   # The size to use.
-  size: 12.5
+  size: 13
   # The normal (roman) font face to use.
   normal:
       #family: Droid Sans Mono Slashed for Powerline
@@ -79,8 +79,8 @@ key_bindings:
     - { key: Key8, mods: Command, chars: "\x01\x38"  } 
     - { key: Key9, mods: Command, chars: "\x01\x39"  } 
     - { key: M, mods: Control, chars: "\x1b\x5b\x43" } 
-    - { key: J, mods: Control, chars: "\x1b\x5b\x41" } 
-    - { key: K, mods: Control, chars: "\x1b\x5b\x42" } 
+    - { key: J, mods: Control, chars: "\x1b\x5b\x42" } 
+    - { key: K, mods: Control, chars: "\x1b\x5b\x41" } 
 
 
 shell:
