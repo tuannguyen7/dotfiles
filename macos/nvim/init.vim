@@ -111,12 +111,6 @@ require("nvim-tree").setup({
 EOF
 " END NvimTree
 
-" Start/setup nvim go
-lua << EOF
-require('go').setup()
-EOF
-" End starting nvim go
-
 " BEGIN lsp-config
 lua << EOF
 -- Mappings.
