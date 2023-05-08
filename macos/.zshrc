@@ -110,7 +110,6 @@ export TERM=xterm-256color
 alias please="sudo" # for fun
 alias vim="nvim"
 alias v="nvim"
-alias cat="bat"
 alias gd="git diff --color | diff-so-fancy"
 alias k="kubectl"
 # alias ohmyzsh="mate ~/.oh-my-zsh"

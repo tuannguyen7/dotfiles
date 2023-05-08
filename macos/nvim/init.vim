@@ -3,9 +3,11 @@ let &packpath=&runtimepath
 
 call plug#begin('~/.vim/plugged')
 
+
 Plug 'kyazdani42/nvim-web-devicons' " optional, for file icons
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'vim-airline/vim-airline'
+
 " Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'itchyny/lightline.vim'
 " Plugin 'ctrlpvim/ctrlp.vim'
