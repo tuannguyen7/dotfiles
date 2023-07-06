@@ -12,7 +12,7 @@ brew upgrade
 BREW_PREFIX=$(brew --prefix)
 
 # install tools
-brew install neovim, mux
+brew install neovim, mux, stow
 
 # download font for alacritty
 
