@@ -101,9 +101,6 @@ export KUBE_EDITOR="/usr/local/bin/nvim"
 # set default terminal
 export TERM=xterm-256color
 
-# Command on startup
-enable-fzf-tab
-
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -117,6 +114,15 @@ enable-fzf-tab
 git_push_curr_branch() {
   git push -u origin `git branch --show-current`
 }
+
+cd_to_workspace() {
+  BASE_DIR=~
+  SELECTED_DIR=`({cd $BASE_DIR && ls -d workspace/* && ls -d personal-workspace/* } | fzf)&`
+  if [ -n "$SELECTED_DIR" ]; then
+    cd $BASE_DIR/$SELECTED_DIR
+  fi
+}
+
 ### alias 
 alias vim="nvim"
 alias v="nvim"
@@ -124,6 +130,7 @@ alias gd="git diff --color | diff-so-fancy"
 alias k="kubectl"
 alias gps=git_push_curr_branch
 alias gpl="git pull"
+alias cdwsp=cd_to_workspace
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -147,6 +154,7 @@ export JAVA_HOME=`/usr/libexec/java_home -v 11.0.18`
 # disable nvm since it slowdown shell startup on Macos
 #export NVM_DIR=~/.nvm
 #source $(brew --prefix nvm)/nvm.sh
+export GOPATH="$HOME/go"
 
 # Configuration for work
 source .zshrc-work
