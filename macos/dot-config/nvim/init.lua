@@ -15,7 +15,7 @@ require('packer').startup(function(use)
   use 'wbthomason/packer.nvim' -- Package manager
   use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
   use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.1',
+    'nvim-telescope/telescope.nvim', tag = '0.1.4',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
   use "folke/neodev.nvim"
@@ -41,7 +41,6 @@ require('packer').startup(function(use)
 
 
   -- local plugin
-  use '/Users/tunguyen/personal-workspace/hlglobals.nvim'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
@@ -52,4 +51,3 @@ end)
 
 require('personal')
 require('plugins')
-vim.keymap.set('n', '<space><space>', require('hlglobals').toggle)
