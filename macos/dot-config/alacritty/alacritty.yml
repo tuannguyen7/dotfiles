@@ -69,7 +69,7 @@ hints:
           key: U
           mods: Control|Shift
 
-key_bindings:
+keyboard.bindings:
     - { key: Key1, mods: Command, chars: "\x01\x31"  } 
     - { key: Key2, mods: Command, chars: "\x01\x32"  } 
     - { key: Key3, mods: Command, chars: "\x01\x33"  } 
