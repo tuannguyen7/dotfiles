@@ -25,7 +25,6 @@ require('packer').startup(function(use)
     requires = {
       'nvim-tree/nvim-web-devicons', -- optional, for file icons
     },
-    tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
@@ -36,8 +35,6 @@ require('packer').startup(function(use)
   use { "ellisonleao/gruvbox.nvim" }
   use { "catppuccin/nvim", as = "catppuccin" }
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-  use 'nvim-treesitter/playground'
-  use 'folke/neodev.nvim'
 
 
   -- local plugin

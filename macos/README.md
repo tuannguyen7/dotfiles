@@ -10,3 +10,6 @@ fzf needs `rp` or `ag`
 ```
 brew install ripgrep
 ```
+
+## Fonts
+https://github.com/ryanoasis/nerd-fonts
