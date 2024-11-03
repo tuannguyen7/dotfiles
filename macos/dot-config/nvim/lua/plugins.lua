@@ -16,6 +16,11 @@ require("nvim-tree").setup({
     dotfiles = true,
   },
 })
+
+local api = require('nvim-tree.api')
+vim.keymap.set('n', '<leader>e', function()
+  api.tree.find_file({ open = false, focus = true , update_root = true})
+end)
 ----------------- END NVimTree 
 
 
