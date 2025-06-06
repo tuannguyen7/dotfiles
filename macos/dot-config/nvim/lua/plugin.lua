@@ -1,67 +1,4 @@
------------------ BEGIN NVimTree 
--- disable netrw at the very start of your init.lua (strongly advised)
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
--- set termguicolors to enable highlight groups
-vim.opt.termguicolors = true
-
--- OR setup with some options
-require("nvim-tree").setup({
-  sort_by = "case_sensitive",
-  renderer = {
-    group_empty = true,
-  },
-  filters = {
-    dotfiles = true,
-  },
-})
-
-local api = require('nvim-tree.api')
-vim.keymap.set('n', '<leader>e', function()
-  api.tree.find_file({ open = false, focus = true , update_root = true})
-end)
------------------ END NVimTree 
-
-
------------------ BEGIN Telescope
-
-require('telescope').setup{
-  defaults = {
-    vimgrep_arguments = {
-      'rg',
-      '--no-heading',
-      '--with-filename',
-      '--line-number',
-      '--column',
-      '--smart-case',
-      '--hidden'
-    },
-    file_previewer = require'telescope.previewers'.cat.new
-  }
-}
-
-local telescopeBuiltin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', telescopeBuiltin.find_files, { noremap = true })
-vim.keymap.set('n', '<leader>fg', telescopeBuiltin.live_grep, { noremap = true })
-vim.keymap.set('n', '<leader>fb', telescopeBuiltin.buffers, { noremap = true })
-vim.keymap.set('n', '<leader>fh', telescopeBuiltin.help_tags, { noremap = true })
-vim.keymap.set('n', '<leader>fc', telescopeBuiltin.colorscheme, { noremap = true })
-
------------------ END Telescope
-
------------------ BEGIN neodev
----- IMPORTANT: make sure to setup neodev BEFORE lspconfig
-require("neodev").setup({
-  -- add any options here, or leave empty to use the default settings
-})
-
------------------ END neodev
-
------------------ BEGIN LSP config
-
 local lspconfig = require('lspconfig')
-
 lspconfig.pyright.setup({})
 
 lspconfig.gopls.setup({})
@@ -126,20 +63,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
 ------------------ END LSP config
 
 
------------------- BEGIN Mason
-require("mason").setup({
-    ui = {
-        icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗"
-        }
-    }
+----------------- BEGIN neodev
+---- IMPORTANT: make sure to setup neodev BEFORE lspconfig
+require("neodev").setup({
+  -- add any options here, or leave empty to use the default settings
 })
------------------- END Mason
 
 
------------------- BEGIN NVim cmp
 local cmp = require'cmp'
 
 cmp.setup({
@@ -207,78 +137,3 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- require('lspconfig')[''].setup {
 --  capabilities = capabilities
 --}
-
------------------- END Nvim-cmp
-
------------------ BEGIN catppuccin
-require("catppuccin").setup({
-    flavour = "mocha", -- latte, frappe, macchiato, mocha
-    background = { -- :h background
-        light = "latte",
-        dark = "mocha",
-    },
-    transparent_background = false, -- disables setting the background color.
-    show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
-    term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
-    dim_inactive = {
-        enabled = false, -- dims the background color of inactive window
-        shade = "dark",
-        percentage = 0.15, -- percentage of the shade to apply to the inactive window
-    },
-    no_italic = false, -- Force no italic
-    no_bold = false, -- Force no bold
-    no_underline = false, -- Force no underline
-    styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
-        comments = { "italic" }, -- Change the style of comments
-        conditionals = { "italic" },
-        loops = {},
-        functions = {},
-        keywords = {},
-        strings = {},
-        variables = {},
-        numbers = {},
-        booleans = {},
-        properties = {},
-        types = {},
-        operators = {},
-    },
-    color_overrides = {},
-    custom_highlights = {},
-    integrations = {
-        cmp = true,
-        gitsigns = true,
-        nvimtree = true,
-        telescope = true,
-        notify = false,
-        mini = false,
-        -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
-    },
-})
-
------------------- END catppuccin
--- 
-require "nvim-treesitter.configs".setup {
-  playground = {
-    enable = true,
-    disable = {},
-    updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
-    persist_queries = false, -- Whether the query persists across vim sessions
-    keybindings = {
-      toggle_query_editor = 'o',
-      toggle_hl_groups = 'i',
-      toggle_injected_languages = 't',
-      toggle_anonymous_nodes = 'a',
-      toggle_language_display = 'I',
-      focus_language = 'f',
-      unfocus_language = 'F',
-      update = 'R',
-      goto_node = '<cr>',
-      show_help = '?',
-    },
-  }
-}
--- END
---
--- BEGIN
---
--- END
