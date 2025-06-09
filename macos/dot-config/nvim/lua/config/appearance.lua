@@ -10,10 +10,5 @@ vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 
-vim.api.nvim_set_keymap("i","jj","<ESC>", { noremap = true })
-
-local nvimTreeApi = require 'nvim-tree.api'
-vim.keymap.set('n', '<C-n>', nvimTreeApi.tree.toggle, { noremap = true })
-
 --vim.cmd("colorscheme tokyonight")
 vim.cmd("colorscheme catppuccin")

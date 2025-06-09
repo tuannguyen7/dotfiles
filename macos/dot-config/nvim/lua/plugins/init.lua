@@ -9,13 +9,14 @@ return {
   },
   {"williamboman/mason.nvim", opts = {
     ui = {
-        icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗"
+		icons = {
+		    package_installed = "✓",
+		    package_pending = "➜",
+		    package_uninstalled = "✗"
+		}
         }
     }
-  }},
+  },
   {
     'nvim-tree/nvim-tree.lua',
     dependencies = {
@@ -31,7 +32,6 @@ return {
         },
     }
   },
-  '',
   'folke/tokyonight.nvim',
   { "ellisonleao/gruvbox.nvim" },
   { "catppuccin/nvim", name = "catppuccin", opts = {
