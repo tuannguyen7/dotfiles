@@ -1,3 +1,3 @@
 require("config.appearance")
-require("config.keymap")
+require("config.keymaps")
 require("config.lazy")

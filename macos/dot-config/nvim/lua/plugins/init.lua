@@ -3,10 +3,6 @@ return {
   "folke/which-key.nvim",
   { "folke/neoconf.nvim" },
   'nvim-lua/plenary.nvim',
-  {
-    'nvim-telescope/telescope.nvim', version = '0.1.4',
-    dependencies = { {'nvim-lua/plenary.nvim'} }
-  },
   {"williamboman/mason.nvim", opts = {
     ui = {
 		icons = {
@@ -17,25 +13,10 @@ return {
         }
     }
   },
-  {
-    'nvim-tree/nvim-tree.lua',
-    dependencies = {
-      'nvim-tree/nvim-web-devicons', -- optional, for file icons
-    },
-    opts = {
-        sort_by = "case_sensitive",
-        renderer = {
-          group_empty = true,
-        },
-        filters = {
-          dotfiles = true,
-        },
-    }
-  },
   'folke/tokyonight.nvim',
   { "ellisonleao/gruvbox.nvim" },
   { "catppuccin/nvim", name = "catppuccin", opts = {
-flavour = "mocha", -- latte, frappe, macchiato, mocha
+  flavour = "mocha", -- latte, frappe, macchiato, mocha
     background = { -- :h background
         light = "latte",
         dark = "mocha",
@@ -78,25 +59,6 @@ flavour = "mocha", -- latte, frappe, macchiato, mocha
     },
 
 
-  } },
-  { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate', opts = {
-    playground = {
-    enable = true,
-    disable = {},
-    updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
-    persist_queries = false, -- Whether the query persists across vim sessions
-    keybindings = {
-      toggle_query_editor = 'o',
-      toggle_hl_groups = 'i',
-      toggle_injected_languages = 't',
-      toggle_anonymous_nodes = 'a',
-      toggle_language_display = 'I',
-      focus_language = 'f',
-      unfocus_language = 'F',
-      update = 'R',
-      goto_node = '<cr>',
-      show_help = '?',
-    },
   }
-  }},
+  }
 }
