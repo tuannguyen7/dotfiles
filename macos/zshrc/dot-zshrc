@@ -76,7 +76,7 @@ ZSH_THEME="robbyrussell"
 
 # custom plugins here
 # fzf-tab https://github.com/aloxaf/fzf-tab
-plugins=(git dotenv tmux fzf)
+plugins=(git dotenv tmux fzf virtualenv)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -156,6 +156,7 @@ eval "$(pyenv init -)"
 #export NVM_DIR=~/.nvm
 #source $(brew --prefix nvm)/nvm.sh
 export GOPATH="$HOME/go"
+export PATH="$GOPATH/bin:$PATH"
 
 # Configuration for work
 source .zshrc-work
@@ -166,3 +167,9 @@ source $(brew --prefix nvm)/nvm.sh
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+# sdk man
+export SDKMAN_DIR=$(brew --prefix sdkman-cli)/libexec
+[[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
+
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status virtualenv)
