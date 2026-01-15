@@ -3,36 +3,20 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
-      "folke/neodev.nvim",
+      "hrsh7th/nvim-cmp",
     },
     event = { "BufReadPre", "BufNewFile" },
     config = function()
-      require("neodev").setup({})
 
-      local lspconfig = require("lspconfig")
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
+      local capabilities = require('cmp_nvim_lsp').default_capabilities()
       -- LSP server configurations
-      lspconfig.pyright.setup({ capabilities = capabilities })
-      lspconfig.gopls.setup({ capabilities = capabilities })
-      lspconfig.lua_ls.setup({
-        capabilities = capabilities,
-        settings = {
-          Lua = {
-            completion = {
-              callSnippet = "Replace",
-            },
-          },
-        },
-      })
-      lspconfig.rust_analyzer.setup({
-        capabilities = capabilities,
-        settings = {
-          ["rust-analyzer"] = {},
-        },
-      })
-      lspconfig.clangd.setup({ capabilities = capabilities })
-      lspconfig.metals.setup({ capabilities = capabilities })
+      vim.lsp.config('pyright', { capabilities = capabilities })
+      vim.lsp.enable('pyright')
+
+      vim.lsp.config('gopls', { capabilities = capabilities })
+      vim.lsp.enable('gopls')
+      --vim.lsp.config('clangd', { capabilities = capabilities })
+      --vim.lsp.config('metals', { capabilities = capabilities })
 
       -- Global diagnostic keymaps
       vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
