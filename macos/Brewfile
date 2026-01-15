@@ -1,0 +1,39 @@
+# Brewfile for macOS development environment
+# Usage: brew bundle install --file=macos/Brewfile
+
+# Taps
+tap "homebrew/bundle"
+tap "homebrew/cask-fonts"
+
+# Core CLI Tools
+brew "stow"              # Symlink manager for dotfiles
+brew "neovim"            # Modern Vim-based text editor
+brew "tmux"              # Terminal multiplexer
+brew "fzf"               # Fuzzy finder for command line
+brew "ripgrep"           # Fast recursive grep (required by fzf and Telescope)
+
+# Kubernetes Tools
+brew "kubectl"           # Kubernetes command-line tool
+brew "kubectx"           # Switch between kubectl contexts (includes kubens)
+
+# Optional but Useful CLI Tools
+# Uncomment if you use these:
+brew "git"             # Version control
+# brew "gh"              # GitHub CLI
+brew "jq"              # JSON processor
+brew "tree"            # Directory tree viewer
+brew "htop"            # Better top
+# brew "bat"             # Better cat with syntax highlighting
+# brew "eza"             # Modern ls replacement
+
+# GUI Applications (Casks)
+cask "alacritty"         # GPU-accelerated terminal emulator
+cask "docker"            # Docker Desktop for Mac
+
+# Fonts
+cask "font-roboto-mono-nerd-font"  # Nerd Font for Alacritty (with icons)
+
+# Mac App Store (mas)
+# Uncomment and add your App Store apps if you install mas:
+# brew "mas"
+# mas "Xcode", id: 497799835
