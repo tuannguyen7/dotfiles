@@ -1,6 +1,5 @@
 return {
   'nvim-telescope/telescope.nvim',
-  tag = 'v0.2.1',
   dependencies = { 
     'nvim-lua/plenary.nvim',
     -- Fuzzy Finder Algorithm which requires local dependencies to be built.
@@ -84,7 +83,15 @@ return {
           enable_preview = true,
         },
       },
-    })
+      extensions = {
+        ["ui-select"] = {
+          require("telescope.themes").get_dropdown {
+            -- even more opts
+          }
+        }
+      }})
+
+    require("telescope").load_extension("ui-select")
   end,
   keys = {
     -- File pickers
@@ -94,7 +101,7 @@ return {
     { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help Tags" },
     { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent Files" },
     { "<leader>fw", "<cmd>Telescope grep_string<cr>", desc = "Find Word under Cursor" },
-    
+
     -- Git pickers
     { "<leader>gf", "<cmd>Telescope git_files<cr>", desc = "Git Files" },
     { "<leader>gc", "<cmd>Telescope git_commits<cr>", desc = "Git Commits" },
