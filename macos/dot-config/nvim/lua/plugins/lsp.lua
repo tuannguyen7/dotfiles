@@ -15,7 +15,8 @@ return {
 
       vim.lsp.config('gopls', { capabilities = capabilities })
       vim.lsp.enable('gopls')
-      --vim.lsp.config('clangd', { capabilities = capabilities })
+      vim.lsp.config('clangd', { capabilities = capabilities })
+      vim.lsp.enable('clangd')
       --vim.lsp.config('metals', { capabilities = capabilities })
 
       -- Global diagnostic keymaps
