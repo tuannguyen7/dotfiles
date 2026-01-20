@@ -95,32 +95,40 @@ return {
   end,
   keys = {
     -- File pickers
-    { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
-    { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live Grep" },
-    { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Find Buffers" },
-    { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help Tags" },
-    { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent Files" },
-    { "<leader>fw", "<cmd>Telescope grep_string<cr>", desc = "Find Word under Cursor" },
+    { "<leader>ff", function() require('telescope.builtin').find_files() end, desc = "Find Files" },
+    { "<leader>ff", function()
+        local text = vim.fn.getregion(vim.fn.getpos('v'), vim.fn.getpos('.'), { type = vim.fn.mode() })
+        require('telescope.builtin').find_files({ default_text = table.concat(text, ' ') })
+      end, mode = "v", desc = "Find Files with Selection" },
+    { "<leader>fg", function() require('telescope.builtin').live_grep() end, desc = "Live Grep" },
+    { "<leader>fg", function()
+        local text = vim.fn.getregion(vim.fn.getpos('v'), vim.fn.getpos('.'), { type = vim.fn.mode() })
+        require('telescope.builtin').live_grep({ default_text = table.concat(text, ' ') })
+      end, mode = "v", desc = "Live Grep with Selection" },
+    { "<leader>fb", function() require('telescope.builtin').buffers() end, desc = "Find Buffers" },
+    { "<leader>fh", function() require('telescope.builtin').help_tags() end, desc = "Help Tags" },
+    { "<leader>fr", function() require('telescope.builtin').oldfiles() end, desc = "Recent Files" },
+    { "<leader>fw", function() require('telescope.builtin').grep_string() end, desc = "Find Word under Cursor" },
 
     -- Git pickers
-    { "<leader>gf", "<cmd>Telescope git_files<cr>", desc = "Git Files" },
-    { "<leader>gc", "<cmd>Telescope git_commits<cr>", desc = "Git Commits" },
-    { "<leader>gb", "<cmd>Telescope git_branches<cr>", desc = "Git Branches" },
-    { "<leader>gs", "<cmd>Telescope git_status<cr>", desc = "Git Status" },
-    
+    { "<leader>gf", function() require('telescope.builtin').git_files() end, desc = "Git Files" },
+    { "<leader>gc", function() require('telescope.builtin').git_commits() end, desc = "Git Commits" },
+    { "<leader>gb", function() require('telescope.builtin').git_branches() end, desc = "Git Branches" },
+    { "<leader>gs", function() require('telescope.builtin').git_status() end, desc = "Git Status" },
+
     -- Other useful pickers
-    { "<leader>fc", "<cmd>Telescope colorscheme<cr>", desc = "Colorscheme" },
-    { "<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "Keymaps" },
-    { "<leader>fm", "<cmd>Telescope marks<cr>", desc = "Marks" },
-    { "<leader>fj", "<cmd>Telescope jumplist<cr>", desc = "Jumplist" },
-    { "<leader>fd", "<cmd>Telescope diagnostics<cr>", desc = "Diagnostics" },
-    
+    { "<leader>fc", function() require('telescope.builtin').colorscheme() end, desc = "Colorscheme" },
+    { "<leader>fk", function() require('telescope.builtin').keymaps() end, desc = "Keymaps" },
+    { "<leader>fm", function() require('telescope.builtin').marks() end, desc = "Marks" },
+    { "<leader>fj", function() require('telescope.builtin').jumplist() end, desc = "Jumplist" },
+    { "<leader>fd", function() require('telescope.builtin').diagnostics() end, desc = "Diagnostics" },
+
     -- LSP pickers (if LSP is active)
-    { "<leader>lr", "<cmd>Telescope lsp_references<cr>", desc = "LSP References" },
-    { "<leader>ld", "<cmd>Telescope lsp_definitions<cr>", desc = "LSP Definitions" },
-    { "<leader>li", "<cmd>Telescope lsp_implementations<cr>", desc = "LSP Implementations" },
-    { "<leader>ls", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Document Symbols" },
-    { "<leader>lw", "<cmd>Telescope lsp_workspace_symbols<cr>", desc = "Workspace Symbols" },
+    { "<leader>lr", function() require('telescope.builtin').lsp_references() end, desc = "LSP References" },
+    { "<leader>ld", function() require('telescope.builtin').lsp_definitions() end, desc = "LSP Definitions" },
+    { "<leader>li", function() require('telescope.builtin').lsp_implementations() end, desc = "LSP Implementations" },
+    { "<leader>ls", function() require('telescope.builtin').lsp_document_symbols() end, desc = "Document Symbols" },
+    { "<leader>lw", function() require('telescope.builtin').lsp_workspace_symbols() end, desc = "Workspace Symbols" },
   },
 }
 
