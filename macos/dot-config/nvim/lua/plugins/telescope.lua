@@ -109,6 +109,7 @@ return {
     { "<leader>fh", function() require('telescope.builtin').help_tags() end, desc = "Help Tags" },
     { "<leader>fr", function() require('telescope.builtin').oldfiles() end, desc = "Recent Files" },
     { "<leader>fw", function() require('telescope.builtin').grep_string() end, desc = "Find Word under Cursor" },
+    { "<leader>rs", function() require('telescope.builtin').resume() end, desc = "Resume search" },
 
     -- Git pickers
     { "<leader>gf", function() require('telescope.builtin').git_files() end, desc = "Git Files" },
