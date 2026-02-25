@@ -150,7 +150,7 @@ export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
 
 # Configuration for work
-source .zshrc-work
+source "$HOME/.zshrc-work"
 
 # activate zshrc-autosuggestion
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
