@@ -153,8 +153,17 @@ export PATH="$GOPATH/bin:$PATH"
 source "$HOME/.zshrc-work"
 
 # activate zshrc-autosuggestion
-#source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-#source $(brew --prefix nvm)/nvm.sh
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# lazy-load nvm — only init when first called
+export NVM_DIR="$HOME/.nvm"
+_lazy_init_nvm() {
+  unfunction nvm node npm npx 2>/dev/null
+  source /opt/homebrew/opt/nvm/nvm.sh
+}
+for cmd in nvm node npm npx; do
+  eval "${cmd}() { _lazy_init_nvm; ${cmd} \"\$@\" }"
+done
 # lazy-load pyenv — only init when first called
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"

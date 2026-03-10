@@ -66,7 +66,7 @@ _prof_report() {
   echo ""
 }
 
-# ─── Profile each section (matches current dot-zshrc) ─────────────────────────
+# ─── Profile each section (synced with dot-zshrc) ─────────────────────────────
 
 _prof_start "oh-my-zsh init"
 ZSH_DISABLE_COMPFIX=true
@@ -122,6 +122,21 @@ _prof_end "go"
 _prof_start "zshrc-work"
 [ -f "$HOME/.zshrc-work" ] && source "$HOME/.zshrc-work"
 _prof_end "zshrc-work"
+
+_prof_start "zsh-autosuggestions"
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+_prof_end "zsh-autosuggestions"
+
+_prof_start "nvm (lazy)"
+export NVM_DIR="$HOME/.nvm"
+_lazy_init_nvm() {
+  unfunction nvm node npm npx 2>/dev/null
+  source /opt/homebrew/opt/nvm/nvm.sh
+}
+for cmd in nvm node npm npx; do
+  eval "${cmd}() { _lazy_init_nvm; ${cmd} \"\$@\" }"
+done
+_prof_end "nvm (lazy)"
 
 _prof_start "pyenv (lazy)"
 export PYENV_ROOT="$HOME/.pyenv"
