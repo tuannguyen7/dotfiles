@@ -76,7 +76,7 @@ ZSH_THEME="robbyrussell"
 
 # custom plugins here
 # fzf-tab https://github.com/aloxaf/fzf-tab
-plugins=(git tmux fzf virtualenv)
+plugins=(git dotenv tmux fzf virtualenv)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -153,39 +153,14 @@ export PATH="$GOPATH/bin:$PATH"
 source "$HOME/.zshrc-work"
 
 # activate zshrc-autosuggestion
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# lazy-load nvm — only init when first called
-export NVM_DIR="$HOME/.nvm"
-_lazy_init_nvm() {
-  unfunction nvm node npm npx 2>/dev/null
-  source /opt/homebrew/opt/nvm/nvm.sh
-}
-for cmd in nvm node npm npx; do
-  eval "${cmd}() { _lazy_init_nvm; ${cmd} \"\$@\" }"
-done
-# lazy-load pyenv — only init when first called
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix nvm)/nvm.sh
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-_lazy_init_pyenv() {
-  unfunction pyenv python python3 pip pip3 2>/dev/null
-  eval "$(pyenv init -)"
-}
-for cmd in pyenv python python3 pip pip3; do
-  eval "${cmd}() { _lazy_init_pyenv; ${cmd} \"\$@\" }"
-done
+eval "$(pyenv init -)"
 
-# lazy-load sdkman — only init when first called
-export SDKMAN_DIR="/opt/homebrew/opt/sdkman-cli/libexec"
-_lazy_init_sdkman() {
-  unfunction sdk java javac gradle maven mvn 2>/dev/null
-  [[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
-}
-for cmd in sdk java javac gradle maven mvn; do
-  eval "${cmd}() { _lazy_init_sdkman; ${cmd} \"\$@\" }"
-done
+# sdk man
+export SDKMAN_DIR=$(brew --prefix sdkman-cli)/libexec
+[[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
 
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status virtualenv)
-
-# completion als
-#source <(als completion zsh)
