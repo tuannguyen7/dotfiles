@@ -76,7 +76,7 @@ ZSH_THEME="robbyrussell"
 
 # custom plugins here
 # fzf-tab https://github.com/aloxaf/fzf-tab
-plugins=(git dotenv tmux fzf virtualenv)
+plugins=(git tmux fzf virtualenv)
 
 source $ZSH/oh-my-zsh.sh
 
