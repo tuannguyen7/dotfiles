@@ -1,0 +1,40 @@
+ZSH_THEME="robbyrussell"
+
+# custom plugins here
+# fzf-tab https://github.com/aloxaf/fzf-tab
+plugins=(git tmux fzf virtualenv)
+
+export KUBE_EDITOR="nvim"
+
+# set default terminal
+export TERM=xterm-256color
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+
+# Alias
+# helper func for alias
+git_push_curr_branch() {
+  git push -u origin `git branch --show-current`
+}
+
+cd_to_workspace() {
+  BASE_DIR=~
+  SELECTED_DIR=`({cd $BASE_DIR && ls -d workspace/* && ls -d personal-workspace/* } | fzf)&`
+  if [ -n "$SELECTED_DIR" ]; then
+    cd $BASE_DIR/$SELECTED_DIR
+  fi
+}
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# path
+export PATH="/Users/tunguyen/.local/bin:/usr/local/sbin:$PATH"
+
+# FZF
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
