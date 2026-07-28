@@ -30,6 +30,7 @@ map \r <Action>(ReformatCode)
 " code navigation
 nmap gi <Action>(GotoImplementation)
 nmap gd <Action>(GotoDeclaration)
+nmap gr <Action>(FindUsages)
 nmap ]c <Action>(VcsShowNextChangeMarker)
 nmap [c <Action>(VcsShowPrevChangeMarker)
 nmap ]e <Action>(GotoNextError)

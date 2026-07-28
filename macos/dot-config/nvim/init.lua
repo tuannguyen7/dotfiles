@@ -1,4 +1,5 @@
 require("config.lazy")
 require("config.appearance")
 require("config.keymaps")
+require("config.misc")
 --require("config.manual-lsp")
