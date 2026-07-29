@@ -110,6 +110,12 @@ chars = "\u001B[A"
 key = "K"
 mods = "Control"
 
+# claude-session-manager: send tmux prefix (C-a) + o -> csm popup
+[[keyboard.bindings]]
+chars = "\u0001o"
+key = "O"
+mods = "Control|Shift"
+
 [mouse]
 hide_when_typing = true
 
